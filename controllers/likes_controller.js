@@ -1,7 +1,6 @@
 const Like = require('../models/like');
 const Comment = require('../models/comment');
 const Post = require('../models/post');
-const { query } = require('express');
 
 module.exports.toggleLike = async function(req, res){
     try{
@@ -37,7 +36,7 @@ module.exports.toggleLike = async function(req, res){
 
             let newLike = await Like.create({
                 user: req.user._id,
-                likeable: query.id,
+                likeable: req.query.id,
                 onModel: req.query.type
             });
 

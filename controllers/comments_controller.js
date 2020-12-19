@@ -16,7 +16,7 @@ module.exports.create = async function(req,res){
             });
             post.comments.push(comment);
             post.save();
-            console.log('Post saved');
+            
             comment = await comment.populate('user', 'name email').execPopulate();
             //commentsMailer.newComment(comment);
             let job = queue.create('emails',comment).save(function(err){
@@ -27,6 +27,18 @@ module.exports.create = async function(req,res){
 
                 console.log('Job enqueued',job.id);
             });
+
+            if (req.xhr){
+                
+    
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Comment created!"
+                });
+            }
+
             req.flash('success', 'Comment published!');
             res.redirect('/');
         }

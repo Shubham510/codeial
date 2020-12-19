@@ -5,6 +5,7 @@
 
         newPostForm.submit(function(e){
             e.preventDefault();
+            
 
             $.ajax({
                 type: 'post',

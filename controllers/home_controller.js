@@ -23,7 +23,9 @@ module.exports.home = async function(req,res){
             populate: {
                 path: 'likes'
             }
-        }).populate('likes');
+        }).populate('comments')
+        .populate('likes');
+        
         let users = await User.find({});
         return res.render('home',{
             title: "Home| Codeial",
