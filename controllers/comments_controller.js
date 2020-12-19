@@ -14,7 +14,7 @@ module.exports.create = async function(req,res){
             post.comments.push(comment);
             post.save();
             console.log('Post saved');
-            comment = await comment.populate('user', 'name').execPopulate();
+            comment = await comment.populate('user', 'name email').execPopulate();
             commentsMailer.newComment(comment);
             req.flash('success', 'Comment published!');
             res.redirect('/');
