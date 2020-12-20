@@ -1,4 +1,4 @@
-# codeial
+# Codeial
 A Full stack web appllication similar to Facebook to understand and practice MERN Stack.
 
 <h2>Installation:</h2>
