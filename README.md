@@ -2,7 +2,6 @@
 A Full stack web appllication similar to Facebook to understand and practice MERN Stack.
 
 <h2> Tools and Frameworks used: </h2>
-<br>
 Node.js, Express.js, MongoDB, passport, nodemailer, multer, kue, node-sass-middleware, socket.io
 
 <h2>Installation:</h2>
